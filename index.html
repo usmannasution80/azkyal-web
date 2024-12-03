@@ -79,25 +79,25 @@
         <div class="row gy-4">
 
           <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item position-relative">
+            <div class="service-item position-relative w-100">
               <div class="icon"><i class="bi bi-router"></i></div>
-              <h4><a href="" class="stretched-link">Jaringan Stabil</a></h4>
+              <h4><span class="stretched-link">Jaringan Stabil</span></h4>
               <p>Sangat cocok untuk anda yang hobi main game atau live streaming</p>
             </div>
           </div>
 
           <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
+            <div class="service-item position-relative w-100">
               <div class="icon"><i class="bi bi-cash-coin"></i></div>
-              <h4><a href="" class="stretched-link">Tarif Terjangkau</a></h4>
+              <h4><span class="stretched-link">Tarif Terjangkau</span></h4>
               <p>Tarif yang kami tetapkan sangat bersahabat.</p>
             </div>
           </div>
 
           <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
+            <div class="service-item position-relative w-100">
               <div class="icon"><i class="bi bi-tools"></i></div>
-              <h4><a href="" class="stretched-link">Gratis Maintenance</a></h4>
+              <h4><span class="stretched-link">Gratis Maintenance</span></h4>
               <p>Setiap kerusakan akan kami perbaiki tanpa dikenakan biaya apapun.</p>
             </div>
           </div>
@@ -161,7 +161,7 @@
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
               <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Jam Kerja</p>
+              <p>Admin Support</p>
             </div>
           </div>
 
@@ -212,6 +212,19 @@
           ];
           let ratesElement = document.getElementById('rates');
           ratesElementContent = '';
+          let waLink = (pack, rates) => {
+            let opening = '';
+            let hours = new Date().getHours();
+            if(hours >= 6 && hours < 11)
+              opening = 'Selamat pagi';
+            else if(hours >= 11 && hours < 16)
+              opening = 'Selamat siang';
+            else if(hours >= 16 && hours < 19)
+              opening = 'Selamat sore';
+            else
+              opening = 'Selamat malam';
+            return 'https://wa.me/send?phone=6281360449422&text=' + opening + '. Saya ingin berlangganan paket ' + pack + ' dengan tarif Rp. ' + rates + ' per bulan.';
+          }
           for(let rates of rates_list){
             ratesElementContent += `
               <div class="card border-0 shadow mb-5" data-aos="fade-up">
@@ -226,9 +239,9 @@
                     <div><i class="bi bi-check"></i> Ideal untuk ${rates.devices} perangkat</div>
                     <div><i class="bi bi-check"></i> Alat dipinjamkan</div>
                   </div>
-                  <button class="btn btn-outline-success btn-lg rounded-pill">
+                  <a href="${waLink(rates.pack, rates.rates)}" class="btn btn-outline-success btn-lg rounded-pill">
                     Pasang Paket Ini
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
