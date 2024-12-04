@@ -203,19 +203,22 @@
               pack     : 'Bronze',
               rates    : '200.000',
               maxSpeed : '5',
-              devices  : '4'
+              devices  : '4',
+              color    : '#CD7F32'
             },
             {
               pack     : 'Silver',
               rates    : '250.000',
               maxSpeed : '10',
-              devices  : '8'
+              devices  : '8',
+              color    : '#C0C0C0'
             },
             {
               pack     : 'Gold',
               rates    : '300.000',
               maxSpeed : '20',
-              devices  : '15'
+              devices  : '15',
+              color    : '#FFD700'
             }
           ];
           let ratesElement = document.getElementById('rates');
@@ -237,7 +240,7 @@
             ratesElementContent += `
               <div class="card border-0 shadow mb-5" data-aos="fade-up">
                 <div class="card-body">
-                  <h6 style="font-size:20px">Paket ${rates.pack}</h6>
+                  <h6 style="font-size:20px;color:${rates.color};-webkit-text-stroke:0.5px grey">Paket ${rates.pack}</h6>
                   <h2 class="text-success" style="font-size:50px">Rp. ${rates.rates}</h2>
                   <h1 style="font-size:20px">per bulan</h1>
                   <div style="color:grey;line-height:200%">
