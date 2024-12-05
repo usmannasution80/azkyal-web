@@ -47,7 +47,25 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="index.html#about"><span val="start"/></a>
+      <button
+        class="btn btn-getstarted p-0 m-0 btn-outline-secondary"
+        data-bs-toggle="modal"
+        data-bs-target="#change-language-modal">
+      </button>
+      <script>
+        const refreshChangeLanguageButton = () => {
+          document
+            .querySelector('button[data-bs-target="#change-language-modal"]')
+            .setAttribute(
+              'style',
+              `background:url("./assets/img/lang/${localStorage.getItem('lang') || 'id'}.png");
+              background-size:100% 100%;
+              width:27px;
+              height:27px;`
+            );
+        };
+        refreshChangeLanguageButton();
+      </script>
 
     </div>
   </header>
@@ -324,7 +342,35 @@
     </div>
 
   </footer>
-
+  <div class="modal fade" id="change-language-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <ul class="list-group"></ul>
+      </div>
+    </div>
+  </div>
+  <script>
+    const changeLanguage = lang => {
+      localStorage.setItem('lang', lang);
+      setValues();
+      refreshChangeLanguageButton();
+    };
+    (() => {
+      let languages = {
+        'id' : 'Bahasa Indonesia',
+        'en-us' : 'English (US)'
+      };
+      let listElement = '';
+      for(let code in languages)
+        listElement += `<li
+          class="list-group-item" onclick="changeLanguage('${code}')"
+          data-bs-toggle="modal"
+          data-bs-target="#change-language-modal">
+          ${languages[code]}
+        </li>`;
+      document.querySelector('#change-language-modal .list-group').innerHTML = listElement;
+    })();
+  </script>
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <div id="preloader"></div>
