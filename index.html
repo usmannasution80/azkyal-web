@@ -47,24 +47,49 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <button
-        class="btn btn-getstarted p-0 m-0 btn-outline-secondary"
-        data-bs-toggle="modal"
-        data-bs-target="#change-language-modal">
-      </button>
+      <div
+        class="dropdown btn-getstarted rounded p-0"
+        id="change-language-dropdown">
+        <button
+          type="button"
+          class="btn dropdown-toggle dropdown-toggle-split"
+          data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <img src="./assets/img/lang/id.png" width="27px"/>
+        </button>
+        <ul class="dropdown-menu"></ul>
+      </div>
       <script>
         const refreshChangeLanguageButton = () => {
           document
-            .querySelector('button[data-bs-target="#change-language-modal"]')
-            .setAttribute(
-              'style',
-              `background:url("./assets/img/lang/${localStorage.getItem('lang') || 'id'}.png");
-              background-size:100% 100%;
-              width:27px;
-              height:27px;`
-            );
+            .querySelector('#change-language-dropdown img')
+            .src = `./assets/img/lang/${localStorage.getItem('lang') || 'id'}.png`;
         };
         refreshChangeLanguageButton();
+        const changeLanguage = lang => {
+          localStorage.setItem('lang', lang);
+          setValues();
+          refreshChangeLanguageButton();
+        };
+        (() => {
+          let languages = {
+            'id' : 'Bahasa Indonesia',
+            'en-us' : 'English (US)'
+          };
+          let listElement = '';
+          for(let code in languages)
+            listElement += `<li>
+              <button
+                class="dropdown-item"
+                onclick="changeLanguage('${code}')">
+                <img
+                  src="./assets/img/lang/${code}.png"
+                  width="27px"/>
+                <span>${languages[code]}</span>
+              </button>
+            </li>`;
+          document.querySelector('#change-language-dropdown .dropdown-menu').innerHTML = listElement;
+        })();
       </script>
 
     </div>
@@ -342,35 +367,7 @@
     </div>
 
   </footer>
-  <div class="modal fade" id="change-language-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <ul class="list-group"></ul>
-      </div>
-    </div>
-  </div>
-  <script>
-    const changeLanguage = lang => {
-      localStorage.setItem('lang', lang);
-      setValues();
-      refreshChangeLanguageButton();
-    };
-    (() => {
-      let languages = {
-        'id' : 'Bahasa Indonesia',
-        'en-us' : 'English (US)'
-      };
-      let listElement = '';
-      for(let code in languages)
-        listElement += `<li
-          class="list-group-item" onclick="changeLanguage('${code}')"
-          data-bs-toggle="modal"
-          data-bs-target="#change-language-modal">
-          ${languages[code]}
-        </li>`;
-      document.querySelector('#change-language-modal .list-group').innerHTML = listElement;
-    })();
-  </script>
+
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <div id="preloader"></div>
