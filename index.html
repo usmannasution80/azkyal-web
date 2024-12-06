@@ -60,24 +60,18 @@
         <ul class="dropdown-menu"></ul>
       </div>
       <script>
+        let changeLanguage;
         const refreshChangeLanguageButton = () => {
+          let currentLang = localStorage.getItem('lang') || 'id';
           document
             .querySelector('#change-language-dropdown img')
-            .src = `./assets/img/lang/${localStorage.getItem('lang') || 'id'}.png`;
-        };
-        refreshChangeLanguageButton();
-        const changeLanguage = lang => {
-          localStorage.setItem('lang', lang);
-          setValues();
-          refreshChangeLanguageButton();
-        };
-        (() => {
+            .src = `./assets/img/lang/${currentLang}.png`;
           let languages = {
             'id' : 'Bahasa Indonesia',
             'en-us' : 'English (US)'
           };
           let listElement = '';
-          for(let code in languages)
+          for(let code in languages){
             listElement += `<li>
               <button
                 class="dropdown-item"
@@ -85,11 +79,21 @@
                 <img
                   src="./assets/img/lang/${code}.png"
                   width="27px"/>
-                <span>${languages[code]}</span>
+                <span
+                  class="${code === currentLang ? 'text-success' : ''}">
+                  ${languages[code]}
+                </span>
               </button>
             </li>`;
+          }
           document.querySelector('#change-language-dropdown .dropdown-menu').innerHTML = listElement;
-        })();
+        };
+        refreshChangeLanguageButton();
+        changeLanguage = lang => {
+          localStorage.setItem('lang', lang);
+          setValues();
+          refreshChangeLanguageButton();
+        };
       </script>
 
     </div>
