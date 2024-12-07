@@ -319,21 +319,35 @@
 
       <div class="container">
 
-        <div class="row gy-4">
+        <div class="row gy-4" id="other-services-row"></div>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-webcam"></i>
-              </div>
-              <span class="stretched-link">
-                <h3 val="cctv_installation"></h3>
-              </span>
-              <p val="cctv_installation_p"></p>
-            </div>
-          </div>
-
-        </div>
+        <script>
+          (() => {
+            const otherServices = [
+              {
+                icon : 'bi bi-webcam',
+                headerVal : 'cctv_installation',
+                pVal : 'cctv_installation_p'
+              }
+            ];
+            let otherServicesContent = '';
+            for(let otherService of otherServices){
+              otherServicesContent += `<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-item position-relative">
+                  <div class="icon">
+                    <i class="${otherService.icon}"></i>
+                  </div>
+                  <span class="stretched-link">
+                    <h3 val="${otherService.headerVal}"></h3>
+                  </span>
+                  <p val="${otherService.pVal}"></p>
+                </div>
+              </div>`;
+            }
+            document.getElementById('other-services-row').innerHTML = otherServicesContent;
+            setValues();
+          })();
+        </script>
         
 
       </div>
