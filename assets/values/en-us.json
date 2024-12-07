@@ -42,4 +42,8 @@
   "address" : "Address",
   "contact_us" : "Contact Us",
   "email_us" : "Email Us"
+  "additional_services" : "Other Services",
+  "additional_services_p" : "We also provide other services that may interest you.",
+  "cctv_installation" : "CCTV Installation",
+  "cctv_installation_p" : "We provide CCTV installation services with rates starting from IDR 200,000 per point (costs excluding DVR)."
 }
