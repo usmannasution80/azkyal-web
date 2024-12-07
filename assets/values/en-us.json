@@ -41,9 +41,11 @@
   "contact_p" : "If there is anything unclear and you want to ask, please contact us.",
   "address" : "Address",
   "contact_us" : "Contact Us",
-  "email_us" : "Email Us"
+  "email_us" : "Email Us",
   "additional_services" : "Other Services",
   "additional_services_p" : "We also provide other services that may interest you.",
   "cctv_installation" : "CCTV Installation",
-  "cctv_installation_p" : "We provide CCTV installation services with rates starting from IDR 200,000 per point (costs excluding DVR)."
+  "cctv_installation_p" : "We provide CCTV installation services with rates starting from IDR 200,000 per point (costs excluding DVR).",
+  "wifi_voucher" : "Voucher WiFi",
+  "wifi_voucher_p" : "You can be our wifi voucher reseller. Access point installation fee starts from IDR 300,000. You will get one free voucher account."
 }
