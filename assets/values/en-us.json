@@ -1,8 +1,8 @@
 {
   "brand" : "PT. Azkyal Network Madina",
-  "office_address" : "Jl. Syekh Abdul Kadir Mandili, Panyabungan III, Kec",
+  "office_address" : "PT AZKYAL NETWORK MADINA<br/>Jl. Syekh abdul kadir mandili no.8, Kel. Kotasiantar, Kec. Panyabungan, Kab. Mandailing Natal - sumatera utara 22919",
   "admin_phone" : "+62 813-6044-9422",
-  "offcie_email" : "azkyak@azkyal.com",
+  "offcie_email" : "pt.azkyalnetworkmadina@gmail.com",
   "home" : "Home",
   "about_us" : "About Us",
   "cost" : "Cost",
@@ -38,6 +38,8 @@
   "package_benefit_3" : "Speed up to :speedmbps",
   "package_benefit_4" : "Ideal for :device-count devices",
   "package_benefit_5" : "Tools are loaned",
+  "package_benefit_6" : "Free installation fee (terms and conditions apply)",
+  "package_benefit_7" : "Suitable for smart tv.",
   "contact_p" : "If there is anything unclear and you want to ask, please contact us.",
   "address" : "Address",
   "contact_us" : "Contact Us",
@@ -47,5 +49,6 @@
   "cctv_installation" : "CCTV Installation",
   "cctv_installation_p" : "We provide CCTV installation services with rates starting from IDR 200,000 per point (costs excluding DVR).",
   "wifi_voucher" : "Voucher WiFi",
-  "wifi_voucher_p" : "You can be our wifi voucher reseller. Access point installation fee starts from IDR 300,000. You will get one free voucher account."
+  "wifi_voucher_p" : "You can be our wifi voucher reseller. Access point installation fee starts from IDR 300,000. You will get one free voucher account.",
+  "affiliated_with" : "Affiliated With"
 }

@@ -22,6 +22,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/main2.css" rel="stylesheet"/>
   <script src="assets/js/set_values.js"></script>
 
 </head>
@@ -252,13 +253,13 @@
             },
             {
               pack     : 'Silver',
-              rates    : '300.000',
+              rates    : '350.000',
               maxSpeed : '10',
               devices  : '8'
             },
             {
               pack     : 'Gold',
-              rates    : '400.000',
+              rates    : '450.000',
               maxSpeed : '20',
               devices  : '15'
             }
@@ -291,6 +292,8 @@
                     <div><i class="bi bi-check"></i> <span val="package_benefit_3" val-speed="${rates.maxSpeed}"/>Kecepatan maksimal ${rates.maxSpeed}mbps</div>
                     <div><i class="bi bi-check"></i> <span val="package_benefit_4" val-device-count="${rates.devices}"/></div>
                     <div><i class="bi bi-check"></i> <span val="package_benefit_5"/></div>
+                    <div class="${rates.pack === 'Bronze' ? 'd-none' : ''}"><i class="bi bi-check"></i> <span val="package_benefit_7"/></div>
+                    <div><i class="bi bi-check"></i> <span val="package_benefit_6"/></div>
                   </div>
                   <a
                     href="${waLink(rates.pack, rates.rates)}"
@@ -404,6 +407,17 @@
 
         </div>
 
+      </div>
+
+    </section>
+    <section id="affiliated-with">
+      <div class="container section-title" data-aos="fade-up">
+        <span val="affiliated_with"></span>
+        <h2 val="affiliated_with"></h2>
+      </div>
+      <div data-aos="fade-up">
+        <img src="./assets/img/kominfo.png"/>
+        <img src="./assets/img/apjii.png"/>
       </div>
 
     </section>

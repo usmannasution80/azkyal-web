@@ -1,8 +1,8 @@
 {
   "brand" : "PT. Azkyal Network Madina",
-  "office_address" : "Jl. Syekh Abdul Kadir Mandili, Panyabungan III, Kec",
+  "office_address" : "PT AZKYAL NETWORK MADINA<br/>Jl. Syekh abdul kadir mandili no.8, Kel. Kotasiantar, Kec. Panyabungan, Kab. Mandailing Natal - sumatera utara 22919",
   "admin_phone" : "+62 813-6044-9422",
-  "offcie_email" : "azkyak@azkyal.com",
+  "offcie_email" : "pt.azkyalnetworkmadina@gmail.com",
   "home" : "Home",
   "about_us" : "Tentang Kami",
   "cost" : "Tarif",
@@ -38,6 +38,8 @@
   "package_benefit_3" : "Kecepatan maksimal :speedmbps",
   "package_benefit_4" : "Ideal untuk :device-count perangkat",
   "package_benefit_5" : "Alat dipinjamkan",
+  "package_benefit_6" : "Gratis biaya pasang (syarat dan ketentuan berlaku)",
+  "package_benefit_7" : "Cocok untuk smart tv.",
   "contact_p" : "Jika ada yang kurang jelas dan ingin ditanyakan, silahkan hubungi kami.",
   "address" : "Alamat",
   "contact_us" : "Kontak Kami",
@@ -47,5 +49,6 @@
   "cctv_installation" : "Pemasangan CCTV",
   "cctv_installation_p" : "Kami menyediakan layanan pemasangan cctv dengan tarif mulai dari Rp. 200.000 per titik (biaya di luar DVR).",
   "wifi_voucher" : "WiFi Voucheran",
-  "wifi_voucher_p" : "Anda bisa menjadi reseller voucher wifi kami. Biaya pasang access point mulai dari Rp. 300.000. Anda akan mendapat satu akun voucher gratis."
+  "wifi_voucher_p" : "Anda bisa menjadi reseller voucher wifi kami. Biaya pasang access point mulai dari Rp. 300.000. Anda akan mendapat satu akun voucher gratis.",
+  "affiliated_with" : "Bergabung Dengan"
 }
