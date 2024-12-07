@@ -5,3 +5,24 @@
   width: 80px;
   margin: auto 10px;
 }
+.card-header-rates {
+  position: absolute;
+  top:-90px;
+  width: 100%;
+  border-radius: 40px;
+}
+.card-header-rates h5 {
+  font-size: 40px;
+  margin: 18px;
+}
+.card-header-rates div {
+  text-align: center;
+  position: absolute;
+  right: 0px;
+  top: -5px;
+  bottom: -5px;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

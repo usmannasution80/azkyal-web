@@ -241,7 +241,9 @@
         <p val="monthly_prices_p"></p>
       </div>
 
-      <div class="container" id="rates"></div>
+      <div class="container">
+        <div class="row" id="rates"></div>
+      </div>
       <script>
         (() => {
           let rates_list = [
@@ -281,20 +283,44 @@
           }
           for(let rates of rates_list){
             ratesElementContent += `
-              <div class="card border-0 shadow mb-5" data-aos="fade-up">
+            <div class="col-12 col-lg-4 pt-5 text-center" data-aos="fade-up">
+              <div class="card border-0 shadow mb-5 mt-5 d-inline-block text-start">
+                <div
+                  class="card-header-rates"
+                  style="background:url('/assets/img/background/${rates.pack.toLowerCase()}.jpg')">
+                  <h5 class="text-dark fw-bold">
+                    ${rates.pack}
+                  </h5>
+                  <div class="bg-primary rounded">
+                    <h3 class="text-light">
+                      ${rates.maxSpeed}<br/>
+                      mbps
+                    </h3>
+                  </div>
+                </div>
                 <div class="card-body">
-                  <h6 style="font-size:20px" val="package" val-package="${rates.pack}"></h6>
                   <h2 class="text-success" style="font-size:50px"><span val="idr_cost" val-cost="${rates.rates}"></span></h2>
                   <h1 style="font-size:20px">per bulan</h1>
-                  <div style="color:grey;line-height:200%">
-                    <div><i class="bi bi-check"></i> <span val="package_benefit_1"/></div>
-                    <div><i class="bi bi-check"></i> <span val="package_benefit_2"/></div>
-                    <div><i class="bi bi-check"></i> <span val="package_benefit_3" val-speed="${rates.maxSpeed}"/>Kecepatan maksimal ${rates.maxSpeed}mbps</div>
-                    <div><i class="bi bi-check"></i> <span val="package_benefit_4" val-device-count="${rates.devices}"/></div>
-                    <div><i class="bi bi-check"></i> <span val="package_benefit_5"/></div>
-                    <div class="${rates.pack === 'Bronze' ? 'd-none' : ''}"><i class="bi bi-check"></i> <span val="package_benefit_7"/></div>
-                    <div><i class="bi bi-check"></i> <span val="package_benefit_6"/></div>
-                  </div>
+                  <table border="0">
+                    ${(() => {
+                      let listBenefit = '';
+                      for(let i=1;i<=7;i++){
+                        if(rates.pack === 'Bronze' && i ===7)
+                          continue;
+                        listBenefit += `<tr>
+                          <td style="vertical-align:top">
+                            <i class="bi bi-check-circle text-success"></i>
+                          </td>
+                          <td
+                            style="padding-left:10px"
+                            val="package_benefit_${i}"
+                            val-speed="${rates.maxSpeed}"
+                            val-device-count="${rates.devices}"></td>
+                        </tr>`;
+                      }
+                      return listBenefit;
+                    })()}
+                  </table>
                   <a
                     href="${waLink(rates.pack, rates.rates)}"
                     class="btn btn-outline-success btn-lg rounded-pill"
