@@ -4,7 +4,18 @@ const setValues = () => {
   .then(values => {
     let elements = document.querySelectorAll('[val]');
     for(let element of elements){
-      text = values[element.getAttribute('val')] || '';
+      let keys = element.getAttribute('val');
+      let text;
+      keys.split('.').forEach(key => {
+        console.log(key)
+        console.log(/^\d+$/.test(key))
+        if(/^\d+$/.test(key))
+          text = text ? text[parseInt(key)] : values[parseInt(key)]
+        else
+          text = text ? text[key] : values[key];
+        console.log(text)
+      });
+      console.log(keys)
       for(let i=0;i<element.attributes.length;i++){
         attr = element.attributes[i];
         if(/^val-.*/.test(attr.nodeName)){

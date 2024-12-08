@@ -480,8 +480,8 @@
                   galleryItems += `<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-${filter}">
                     <img src="/assets/img/gallery/${filter}/${i}.jpg" class="img-fluid" alt=""/>
                     <div class="portfolio-info">
-                      <h4>Books 3</h4>
-                      <p>Lorem ipsum, dolor sit amet consectetur</p>
+                      <h4 val="gallery_items.${filter}.${i-1}.title"></h4>
+                      <p val="gallery_items.${filter}.${i-1}.description"></p>
                       <a href="/assets/img/gallery/${filter}/${i}.jpg" title="Branding 3" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                       <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                     </div>

@@ -50,5 +50,39 @@
   "gallery" : "Galeri",
   "all" : "Semua",
   "maintenance" : "Maintenance",
-  "tools" : "Peralatan"
+  "tools" : "Peralatan",
+  "gallery_items" : {
+    "tools" : [
+      {
+        "title" : "Splicer",
+        "description" : "Alat untuk menyambung fiber optic."
+      },
+      {
+        "title" : "Splicer",
+        "description" : "Alat untuk menyambung fiber optic."
+      }
+    ],
+    "maintenance" : [
+      {
+        "title" : "Perbaikan CCTV",
+        "description" : "Perbaikan CCTV yang bermasalah."
+      },
+      {
+        "title" : "Pemeliharaan Kabel",
+        "description" : "Pemeliharaan kabel fiber optic 6 core."
+      },
+      {
+        "title" : "Pemasangan",
+        "description" : "Proses pemasangan kabel fiber optic 1 core."
+      },
+      {
+        "title" : "Pemeliharaan Kabel",
+        "description" : "Momen istirahat saat memelihara kabel fiber optic 48 core."
+      },
+      {
+        "title" : "Pemeliharaan Kabel",
+        "description" : "Tampak roset sambungan kabel fiber optic 48 core."
+      }
+    ]
+  }
 }
