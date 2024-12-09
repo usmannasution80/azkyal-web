@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title config="brand"></title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <link href="/assets/img/logo.png" rel="shortcut icon">
+  <link href="/assets/img/logo.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/main2.css" rel="stylesheet"/>
+  <script>
+    const VALUES = {};
+  </script>
+  <script src="/assets/values/id.js"></script>
+  <script src="/assets/values/en-us.js"></script>
+  <script src="/config.js"></script>
+  <script src="/assets/js/set_values.js"></script>
+  <script src="/assets/js/config_helper.js"></script>
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="/index.html" class="logo d-flex align-items-center me-auto">
+        <h1 class="sitename">
+          <img src="./assets/img/logo.png" width="40px"/>
+        </h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/index.html#hero" class="active" val="home"></a></li>
+          <li><a href="/index.html#about" val="about_us"></a></li>
+          <li><a href="about-us.html" val="why_us"></a></li>
+          <li><a href="/index.html#services" val="start_subscribe"></a></li>
+          <li><a href="/index.html#contact" val="contact"></a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div
+        class="dropdown btn-getstarted rounded p-0"
+        id="change-language-dropdown">
+        <button
+          type="button"
+          class="btn dropdown-toggle dropdown-toggle-split"
+          data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <img src="./assets/img/lang/id.png" width="27px"/>
+        </button>
+        <ul class="dropdown-menu"></ul>
+      </div>
+      <script>
+        let changeLanguage;
+        const refreshChangeLanguageButton = () => {
+          let currentLang = localStorage.getItem('lang') || 'id';
+          document
+            .querySelector('#change-language-dropdown img')
+            .src = `./assets/img/lang/${currentLang}.png`;
+          let languages = {
+            'id' : 'Bahasa Indonesia',
+            'en-us' : 'English (US)'
+          };
+          let listElement = '';
+          for(let code in languages){
+            listElement += `<li>
+              <button
+                class="dropdown-item"
+                onclick="changeLanguage('${code}')">
+                <img
+                  src="./assets/img/lang/${code}.png"
+                  width="27px"/>
+                <span
+                  class="${code === currentLang ? 'text-success' : ''}">
+                  ${languages[code]}
+                </span>
+              </button>
+            </li>`;
+          }
+          document.querySelector('#change-language-dropdown .dropdown-menu').innerHTML = listElement;
+        };
+        refreshChangeLanguageButton();
+        changeLanguage = lang => {
+          localStorage.setItem('lang', lang);
+          setValues();
+          refreshChangeLanguageButton();
+        };
+      </script>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <section  class="section">
+
+      <div class="container">
+        <div class="row">
+          <div class="col pb-3">
+            <h1 val="why_us" class="h1 fw-bold fs-1 text-center"></h1>
+            <h3 class="h3 fw-bold" val="about_us"></h3>
+            <p val="about_us_p2" data-aos="fade-up"></p>
+            <p val="about_us_p3" data-aos="fade-up"></p>
+            <p val="about_us_p4" data-aos="fade-up"></p>
+            <p val="about_us_p5" data-aos="fade-up"></p>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h3 class="h3 fw-bold" val="vission_mission"></h3>
+            </div>
+            <div class="col-lg-6 col-sm-12 pb-3">
+              <div class="card border-0 shadow-lg" data-aos="fade-up">
+                <div class="card-body">
+                  <h5 class="h5 fw-bold text-success" val="vision"></h5>
+                  <table border="0" class="table-list">
+                    <tr>
+                      <td>
+                        <i class="bi bi-check-circle"></i>
+                      </td>
+                      <td val="vision_1"></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <i class="bi bi-check-circle"></i>
+                      </td>
+                      <td val="vision_2"></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-sm-12 pb-3">
+              <div class="card border-0 shadow-lg" data-aos="fade-up">
+                <div class="card-body">
+                  <h5 class="h5 fw-bold text-success" val="mission"></h5>
+                  <table border="0" class="table-list">
+                    <tr>
+                      <td>
+                        <i class="bi bi-check-circle"></i>
+                      </td>
+                      <td val="mission_1"></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <i class="bi bi-check-circle"></i>
+                      </td>
+                      <td val="mission_2"></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <i class="bi bi-check-circle"></i>
+                      </td>
+                      <td val="mission_3"></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h3 class="h3 fw-bold" val="history"></h3>
+              <p val="history_p"></p>
+            </div>
+          </div>
+        </div>
+        <div class="container pt-5">
+          <div class="row">
+            <ul class="nav nav-underline justify-content-center" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#h2010" type="button" role="tab" aria-controls="home" aria-selected="true">
+                  2010
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#h2019" type="button" role="tab" aria-controls="profile" aria-selected="false">
+                  2019
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#h2022" type="button" role="tab" aria-controls="contact" aria-selected="false">
+                  2022
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#h2023" type="button" role="tab" aria-controls="contact" aria-selected="false">
+                  2023
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content pt-5" id="myTabContent">
+              <div class="tab-pane fade show active" id="h2010" role="tabpanel" aria-labelledby="home-tab">
+                <div class="card border-0 shadow-lg">
+                  <div class="card-body">
+                    <h5 class="text-success fw-bold">2010</h5>
+                    <p val="history_2010_p"></p>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="h2019" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="card border-0 shadow-lg">
+                  <div class="card-body">
+                    <h5 class="text-success fw-bold">2019</h5>
+                    <p val="history_2019_p"></p>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="h2022" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="card border-0 shadow-lg">
+                  <div class="card-body">
+                    <h5 class="text-success fw-bold">2022</h5>
+                    <p val="history_2022_p"></p>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="h2023" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="card border-0 shadow-lg">
+                  <div class="card-body">
+                    <h5 class="text-success fw-bold">2023</h5>
+                    <p val="history_2023_p"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">PT. Azkyal Network Madina</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a><br/>
+        Developed by <a href="https://github.com/usmannasution80">Usman Nasution</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    setValues();
+    setConfigs();
+  </script>
+</body>
+
+</html>

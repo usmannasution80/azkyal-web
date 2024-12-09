@@ -26,3 +26,10 @@
   align-items: center;
   justify-content: center;
 }
+.table-list {
+  vertical-align: top;
+}
+.table-list tr td:nth-child(1) {
+  padding-right: 10px;
+  vertical-align: top;
+}
