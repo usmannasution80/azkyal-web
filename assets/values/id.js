@@ -1,4 +1,4 @@
-{
+VALUES['id'] = {
   "home" : "Home",
   "about_us" : "Tentang Kami",
   "cost" : "Tarif",

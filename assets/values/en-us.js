@@ -1,4 +1,4 @@
-{
+VALUES['en-us'] = {
   "home" : "Home",
   "about_us" : "About Us",
   "cost" : "Cost",

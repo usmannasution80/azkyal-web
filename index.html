@@ -23,6 +23,12 @@
 
   <link href="assets/css/main.css" rel="stylesheet">
   <link href="assets/css/main2.css" rel="stylesheet"/>
+  <script>
+    const VALUES = {};
+  </script>
+  <script src="/assets/values/id.js"></script>
+  <script src="/assets/values/en-us.js"></script>
+  <script src="/config.js"></script>
   <script src="assets/js/set_values.js"></script>
   <script src="assets/js/config_helper.js"></script>
 
@@ -468,9 +474,9 @@
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200" id="gallery-items-container"></div>
           <script>
-            (async () => {
+            (() => {
               let container = document.getElementById('gallery-items-container');
-              let galleryCounts = await getConfig('gallery_counts');
+              let galleryCounts = getConfig('gallery_counts');
               let galleryItems = '';
               for(let filter in galleryCounts){
                 for(let i=1;i<=galleryCounts[filter];i++){
