@@ -84,7 +84,7 @@ VALUES['id'] = {
         'description' : 'Tampak roset sambungan kabel fiber optic 48 core.'
       }
     ],
-    'others' : {
+    'others' : [
       ...(() => {
         let data = [];
         for(let i = 0; i < 5; i++){
@@ -93,8 +93,9 @@ VALUES['id'] = {
             'description' : 'Kebersamaan Tim'
           });
         }
+        return data;
       })()
-    }
+    ]
   },
   'why_us' : 'Mengapa Kami?',
   'about_us_p2' : 'PT. Azkyal Network Madina adalah perusahaan lokal pertama dan satu-satunya yang bergerak di bidang internet service provider yang berada di kabupaten Mandailing Natal.',
