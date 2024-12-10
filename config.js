@@ -5,6 +5,7 @@ const CONFIG = {
   "offcie_email" : "pt.azkyalnetworkmadina@gmail.com",
   "gallery_counts" : {
     "tools" : 2,
-    "maintenance" : 5
+    "maintenance" : 5,
+    "others" : 3
   }
 }

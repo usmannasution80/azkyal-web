@@ -83,7 +83,18 @@ VALUES['id'] = {
         'title' : 'Pemeliharaan Kabel',
         'description' : 'Tampak roset sambungan kabel fiber optic 48 core.'
       }
-    ]
+    ],
+    'others' : {
+      ...(() => {
+        let data = [];
+        for(let i = 0; i < 5; i++){
+          data.push({
+            'title' : 'Kebersamaan Tim',
+            'description' : 'Kebersamaan Tim'
+          });
+        }
+      })()
+    }
   },
   'why_us' : 'Mengapa Kami?',
   'about_us_p2' : 'PT. Azkyal Network Madina adalah perusahaan lokal pertama dan satu-satunya yang bergerak di bidang internet service provider yang berada di kabupaten Mandailing Natal.',
@@ -103,5 +114,6 @@ VALUES['id'] = {
   'history_2019_p' : 'Memulai dari akar sebagai RTRWnet. Di tahun 2019, Azkyal mendapatkan izin distribusi internet oleh Provider JINOM (PT. Jinom Network Indonesia) dan berkomitmen untuk mendapatkan izin ISP sehingga bisnis bisa berkembang.',
   'history_2022_p' : 'Azkyal berlisensi sebagai ISP dan berfokus membantu RTRWnet mendapatkan izin untuk melakukan jual kembali internet hingga berkembang memiliki reseller di Indonesia.',
   'history_2023_p' : 'Kini, Azkyal berkomitmen melakukan pemasaran dan penjualan internet untuk menjadi perusahaan lokal pertama di kabupaten Mandailing Natal yang menyediakan list produk-produk internet dari berbagai penyedia layanan internet. ',
-  'vission_mission' : 'Visi & Misi'
+  'vission_mission' : 'Visi & Misi',
+  'others' : 'Lainnya'
 }
