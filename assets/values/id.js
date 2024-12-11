@@ -116,5 +116,9 @@ VALUES['id'] = {
   'history_2022_p' : 'Azkyal berlisensi sebagai ISP dan berfokus membantu RTRWnet mendapatkan izin untuk melakukan jual kembali internet hingga berkembang memiliki reseller di Indonesia.',
   'history_2023_p' : 'Kini, Azkyal berkomitmen melakukan pemasaran dan penjualan internet untuk menjadi perusahaan lokal pertama di kabupaten Mandailing Natal yang menyediakan list produk-produk internet dari berbagai penyedia layanan internet. ',
   'vission_mission' : 'Visi & Misi',
-  'others' : 'Lainnya'
+  'others' : 'Lainnya',
+  'electrical_system_repair' : 'Pemeliharaan Sistem Kelistrikan',
+  'electrical_system_repair_p' : 'Kami menyediakan jasa perbaikan atau pemasangan sistem kelistrikan di rumah anda. Untuk pemasangan, dikenakan tarif Rp. 150.000 per titik. Tarif bisa dinegosiasikan.',
+  'build_web' : 'Pembuatan Web',
+  'build_web_p' : 'Kami menyediakan layanan pembuatan web. Tarif untuk layanan ini harus dinegosiasikan.'
 }
