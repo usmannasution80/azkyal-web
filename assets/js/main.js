@@ -207,3 +207,26 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+(() => {
+
+  function getChromeVersion () {
+    var pieces = navigator.userAgent.match(/Chrom(?:e|ium)\/([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/);
+    if (pieces == null || pieces.length != 5) {
+        return undefined;
+    }
+    pieces = pieces.map(piece => parseInt(piece, 10));
+    return {
+        major: pieces[1],
+        minor: pieces[2],
+        build: pieces[3],
+        patch: pieces[4]
+    };
+  }
+  if(getChromeVersion().major < 111){
+    let sectionTitleSpans = document.querySelectorAll('.section-title span');
+    for(let span of sectionTitleSpans)
+      span.style.visibility = 'hidden';
+  }
+
+})();
