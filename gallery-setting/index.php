@@ -1,4 +1,5 @@
 <?php
+  session_start();
   $gallery_db_path = './../assets/img/gallery/gallery.json';
   $gallery_path = './../assets/img/gallery/';
   if(!is_file($gallery_db_path)){
@@ -16,9 +17,14 @@
         $pictures[$album][] = $file;
     }
   }
-  if(isset($_GET['action'])){
+  if(isset($_GET['action']) && (isset($_POST['__token']) || isset($_SESSION['__token']))){
 
+    $token = 'jsksgksksgskjmshdhsjsbnsjsn';
 
+    if(isset($_POST['__token']))
+      $_SESSION['__token'] = $_POST['__token'];
+    if($_SESSION['__token'] !== $token)
+      exit;
     switch($_GET['action']){
 
 
@@ -141,7 +147,7 @@
       var imageToEdit;
     </script>
   </head>
-  <body>
+  <body <?=isset($_SESSION['__token']) ? '__token="' . $_SESSION['__token'] . '"' : ''?>>
 
   <div class="card m-2">
     <div class="card-header">
@@ -303,6 +309,7 @@
         </div>
         <div class="modal-body">
           <form method="POST" action="?action=upload-picture" enctype="multipart/form-data">
+            <input name="__token" class="d-none"/>
             <select name="album" class="form-select">
               <?php foreach($gallery as $album => $keys): ?>
               <option value="<?=$album?>"><?=$album?></option>
@@ -353,6 +360,7 @@
         <div class="modal-body">
           <img style="max-height: 100px;" />
           <form method="POST" action="?action=edit-picture">
+            <input name="__token" class="d-none"/>
             <input type="text" name="filename" style="display: none" />
             <input type="text" name="album" style="display: none"/>
             <div class="mt-2">
@@ -409,12 +417,14 @@
               return alert('There\'s empty input');
             form += input.getAttribute('value-of') + '=' + encodeURIComponent(input.value) + '&';
           }
+          form += '__token=' + document.body.getAttribute('__token');
           axios.post('?action=add-album', form)
           .then(r => window.location.reload())
           .catch(err => console.log(err))
         };
         document.querySelector('#modal-add-picture .save').onclick = e => {
-          let input = document.querySelector('#modal-add-picture input');
+          document.querySelector('[name="__token"]').value = document.body.getAttribute('__token');
+          let input = document.querySelector('#modal-add-picture input[type="file"]');
           if(!input.value)
             return alert('You didnt upload file');
           document.querySelector('#modal-add-picture form').submit();
@@ -438,10 +448,12 @@
             'src=' + encodeURIComponent(deletePictureImg.getAttribute('src'))
             + '&album=' + encodeURIComponent(deletePictureImg.getAttribute('album'))
             + '&filename=' + encodeURIComponent(deletePictureImg.getAttribute('filename'))
+            + '&__token=' + document.body.getAttribute('__token')
           ).then(r => window.location.reload())
           .catch(err => console.log(r));
         };
         document.querySelector('#modal-edit-picture .save').onclick = e => {
+          document.querySelector('[name="__token"]').value = document.body.getAttribute('__token');
           document.querySelector('#modal-edit-picture form').submit();
         };
       })();
