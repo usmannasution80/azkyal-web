@@ -28,7 +28,7 @@
     'monthly_prices_h' => 'Tarif Bulanan',
     'monthly_prices_p' => 'Tarif yang kami tetapkan sangat bersahabat dan cocok bahkan jika anda masih seorang mahasiswa.',
     'package' => 'Paket =>package',
-    'idr_cost' => 'Rp. cost',
+    'idr_cost' => 'Rp. :cost',
     'start_subscribe' => 'Mulai Berlangganan',
     'package_benefit_1' => 'Harga stabil',
     'package_benefit_2' => 'Kuota unlimited',
