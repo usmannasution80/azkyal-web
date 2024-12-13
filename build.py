@@ -19,24 +19,28 @@ def scan(directory = './'):
     if file == buildFile and directory == './':
       continue
 
+    build_path = re.sub('^./', './' + root, directory) + file;
     if(os.path.isdir(directory + file)):
-      if not os.path.isdir(re.sub('^./', './' + root, directory) + file):
-        os.mkdir(re.sub('^./', './' + root, directory) + file)
+      if not os.path.isdir(build_path):
+        os.mkdir(build_path)
+        os.system('chmod 755 ' + build_path)
       scan(directory + file + '/')
       continue
 
     file = directory + file
-    if os.path.isfile(re.sub('^./', './' + root, file)):
-      if not os.path.getmtime(file) > os.path.getmtime(re.sub('^./', './' + root, file)):
+    if os.path.isfile(build_path):
+      if not os.path.getmtime(file) > os.path.getmtime(build_path):
+        os.system('chmod 755 ' + build_path)
         continue
     if re.search(r'\.html$', file):
-      os.system(f'html-minifier "{file}" -o "{re.sub('^./', './' + root, file)}" --collapse-whitespace')
+      os.system(f'html-minifier "{file}" -o "{build_path}" --collapse-whitespace')
     elif re.search(r'\.js$', file):
-      os.system(f'uglifyjs "{file}" -o "{re.sub('^./', './' + root, file)}" -c -m')
+      os.system(f'uglifyjs "{file}" -o "{build_path}" -c -m')
     elif re.search(r'\.css$', file):
-      os.system(f'cleancss -o "{re.sub('^./', './' + root, file)}" "{file}"')
+      os.system(f'cleancss -o "{build_path}" "{file}"')
     else:
-      os.system(f'cp "{file}" "{re.sub('^./', './' + root, file)}"')
+      os.system(f'cp "{file}" "{build_path}"')
+    os.system('chmod 755 ' + build_path)
     
 
 scan()
