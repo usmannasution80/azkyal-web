@@ -1,5 +1,4 @@
 <?php
-  session_start();
   $gallery_db_path = './../assets/img/gallery/gallery.json';
   $gallery_path = './../assets/img/gallery/';
   if(!is_file($gallery_db_path)){
@@ -17,13 +16,11 @@
         $pictures[$album][] = $file;
     }
   }
-  if(isset($_GET['action']) && (isset($_POST['__token']) || isset($_SESSION['__token']))){
+  if(isset($_GET['action']) && isset($_POST['__token'])){
 
     $token = 'jsksgksksgskjmshdhsjsbnsjsn';
 
-    if(isset($_POST['__token']))
-      $_SESSION['__token'] = $_POST['__token'];
-    if($_SESSION['__token'] !== $token)
+    if($_POST['__token'] !== $token)
       exit;
     switch($_GET['action']){
 
@@ -56,7 +53,7 @@
           http_response_code(403);
         }
         $filename = time() . '.jpg';
-        $gallery_db[$_POST['album']][$filename] = [
+        $gallery_db[$_POST['album']]['pictures'][$filename] = [
           'title' => [
             'id' => $_POST['title-id'],
             'en-us' => $_POST['title-en-us']
@@ -96,7 +93,7 @@
 
 
       case 'delete-picture':
-        unset($gallery_db[$_POST['album']][$_POST['filename']]);
+        unset($gallery_db[$_POST['album']]['pictures'][$_POST['filename']]);
         $f = fopen($gallery_db_path, 'w');
         fwrite($f, json_encode($gallery_db));
         fclose($f);
@@ -147,7 +144,7 @@
       var imageToEdit;
     </script>
   </head>
-  <body <?=isset($_SESSION['__token']) ? '__token="' . $_SESSION['__token'] . '"' : ''?>>
+  <body>
 
   <div class="card m-2">
     <div class="card-header">
