@@ -32,7 +32,7 @@ def scan(directory = './'):
       if not os.path.getmtime(file) > os.path.getmtime(build_path):
         os.system('chmod 755 ' + build_path)
         continue
-    if re.search(r'\.html$', file):
+    if re.search(r'\.(html|php)$', file):
       os.system(f'html-minifier "{file}" -o "{build_path}" --collapse-whitespace')
     elif re.search(r'\.js$', file):
       os.system(f'uglifyjs "{file}" -o "{build_path}" -c -m')

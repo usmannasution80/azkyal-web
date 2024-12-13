@@ -5,7 +5,7 @@
     'cost' => 'Tarif',
     'contact' => 'Kontak',
     'start' => 'Mulai',
-    'home_p' => 'Solusi internet unlimited tampa batas.',
+    'home_p' => 'Solusi internet unlimited tanpa batas.',
     'featured_service_h1' => 'Jaringan Stabil',
     'featured_service_p1' => 'Sangat cocok untuk anda yang hobi main game atau live streaming',
     'featured_service_h2' => 'Tarif Terjangkau',
@@ -27,7 +27,6 @@
     'number_of_technicians' => 'Jumlah Teknisi',
     'monthly_prices_h' => 'Tarif Bulanan',
     'monthly_prices_p' => 'Tarif yang kami tetapkan sangat bersahabat dan cocok bahkan jika anda masih seorang mahasiswa.',
-    'package' => 'Paket =>package',
     'idr_cost' => 'Rp. :cost',
     'start_subscribe' => 'Mulai Berlangganan',
     'package_benefit_1' => 'Harga stabil',
@@ -46,46 +45,10 @@
     'cctv_installation' => 'Pemasangan CCTV',
     'cctv_installation_p' => 'Kami menyediakan layanan pemasangan cctv dengan tarif mulai dari Rp. 200.000 per titik (biaya di luar perangkat).',
     'wifi_voucher' => 'WiFi Voucheran',
-    'wifi_voucher_p' => 'Anda bisa menjadi reseller voucher wifi kami. Gratis biaya pasang access point wifi voucheran kami dengan syarat dan ketentuan yang berlaku. Dan akan mendapatkan 1 akun voucher gratis.',
+    'wifi_voucher_p' => 'Anda bisa menjadi reseller voucher wifi kami. Gratis biaya pasang access point wifi voucheran kami dengan syarat dan ketentuan yang berlaku. Dan akan mendapatkan 1 akun voucher gratis. Anda juga akan mendapatkan fee sebagai reseller.',
     'affiliated_with' => 'Bergabung Dengan',
     'gallery' => 'Galeri',
     'all' => 'Semua',
-    'maintenance' => 'Maintenance',
-    'tools' => 'Peralatan',
-    'gallery_items' => [
-      'tools' => [
-        [
-          'title' => 'Splicer',
-          'description' => 'Alat untuk menyambung fiber optic.'
-        ],
-        [
-          'title' => 'Splicer',
-          'description' => 'Alat untuk menyambung fiber optic.'
-        ]
-      ],
-      'maintenance' => [
-        [
-          'title' => 'Perbaikan CCTV',
-          'description' => 'Perbaikan CCTV yang bermasalah.'
-        ],
-        [
-          'title' => 'Pemeliharaan Kabel',
-          'description' => 'Pemeliharaan kabel fiber optic 6 core.'
-        ],
-        [
-          'title' => 'Pemasangan',
-          'description' => 'Proses pemasangan kabel fiber optic 1 core.'
-        ],
-        [
-          'title' => 'Pemeliharaan Kabel',
-          'description' => 'Momen istirahat saat memelihara kabel fiber optic 48 core.'
-        ],
-        [
-          'title' => 'Pemeliharaan Kabel',
-          'description' => 'Tampak roset sambungan kabel fiber optic 48 core.'
-        ]
-      ],
-    ],
     'why_us' => 'Mengapa Kami?',
     'about_us_p2' => 'PT Azkyal Network Madina adalah perusahaan lokal pertama dan satu-satunya yang bergerak di bidang internet service provider yang berada di kabupaten Mandailing Natal.',
     'about_us_p3' => 'PT Azkyal Network Madina dalam menjalankan bisnis didukung oleh sumber daya manusia yang berkualitas dan berpengalaman dalam bidangnya maka anda jangan khawatir dengan pelayanan kami.',
