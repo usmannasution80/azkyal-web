@@ -111,5 +111,23 @@
     'build_web' => 'Pembuatan Web',
     'build_web_p' => 'Kami menyediakan layanan pembuatan web. Tarif untuk layanan ini harus dinegosiasikan.'
   ];
+  $gallery_db_path = '../img/gallery/gallery.json';
+  if(is_file($gallery_db_path)){
+    $gallery_db = json_decode(file_get_contents($gallery_db_path), true);
+    $values['gallery'] = [];
+    foreach($gallery_db as $album => $content){
+      $pictures = [];
+      foreach($content['pictures'] as $filename => $picture){
+        $pictures[$filename] = [
+          'title' => $picture['title']['id'],
+          'description' => $picture['description']['id']
+        ];
+      }
+      $values['gallery'][$album] = [
+        'label' => $content['labels']['id'],
+        'pictures' => $pictures
+      ];
+    }
+  }
 ?>
 VALUES['id'] = JSON.parse('<?=str_replace("'", "\\'", json_encode($values))?>');
