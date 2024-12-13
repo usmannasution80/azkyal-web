@@ -480,33 +480,38 @@
 
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
             <li data-filter="*" class="filter-active" val="all"></li>
-            <li data-filter=".filter-maintenance" val="maintenance"></li>
-            <li data-filter=".filter-tools" val="tools"></li>
-            <li data-filter=".filter-others" val="others"></li>
+            <?php
+              $gallery_path = 'assets/img/gallery/';
+              $gallery = [];
+              foreach(scandir($gallery_path) as $album){
+                if($album === '.' || $album === '..' || is_file($gallery_path . $album))
+                  continue;
+                $gallery [] = $album;
+            ?>
+            <li data-filter=".filter-<?=$album?>" val="gallery_items.<?=$album?>.label"></li>
+            <?php } ?>
           </ul>
 
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200" id="gallery-items-container"></div>
-          <script>
-            (() => {
-              let container = document.getElementById('gallery-items-container');
-              let galleryCounts = getConfig('gallery_counts');
-              let galleryItems = '';
-              for(let filter in galleryCounts){
-                for(let i=1;i<=galleryCounts[filter];i++){
-                  galleryItems += `<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-${filter}">
-                    <img src="/assets/img/gallery/${filter}/${i}.jpg" class="img-fluid" alt=""/>
-                    <div class="portfolio-info">
-                      <h4 val="gallery_items.${filter}.${i-1}.title"></h4>
-                      <p val="gallery_items.${filter}.${i-1}.description"></p>
-                      <a href="/assets/img/gallery/${filter}/${i}.jpg" title="Branding 3" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                      <a href="" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                    </div>
-                  </div>`;
-                }
-              }
-              container.innerHTML = galleryItems;
-            })();
-          </script>
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200" id="gallery-items-container">
+            <?php
+              foreach($gallery as $album){
+                foreach(scandir($gallery_path . $album) as $picture){
+                  if($picture === '.' || $picture === '..')
+                    continue;
+                  $picture_path = "/$gallery_path$album/$picture";
+                  $val = "gallery_items.$album.pictures." . str_replace('.', '\\.', $picture);
+            ?>
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-<?=$album?>">
+              <img src="<?=$picture_path?>" class="img-fluid" alt=""/>
+              <div class="portfolio-info">
+                <h4 val="<?="$val.title"?>"></h4>
+                <p val="<?="$val.description"?>"></p>
+                <a href="<?=$picture_path?>" title="<?=$picture?>" data-gallery="portfolio-gallery-<?=$album?>" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+            <?php }} ?>
+          </div>
 
         </div>
 

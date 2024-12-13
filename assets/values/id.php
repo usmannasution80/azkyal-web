@@ -114,7 +114,7 @@
   $gallery_db_path = '../img/gallery/gallery.json';
   if(is_file($gallery_db_path)){
     $gallery_db = json_decode(file_get_contents($gallery_db_path), true);
-    $values['gallery'] = [];
+    $values['gallery_items'] = [];
     foreach($gallery_db as $album => $content){
       $pictures = [];
       foreach($content['pictures'] as $filename => $picture){
@@ -123,7 +123,7 @@
           'description' => $picture['description']['id']
         ];
       }
-      $values['gallery'][$album] = [
+      $values['gallery_items'][$album] = [
         'label' => $content['labels']['id'],
         'pictures' => $pictures
       ];

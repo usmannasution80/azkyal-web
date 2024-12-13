@@ -4,7 +4,8 @@ const setValues = () => {
   for(let element of elements){
     let keys = element.getAttribute('val');
     let text;
-    keys.split('.').forEach(key => {
+    keys.split(/(?<!\\)\./).forEach(key => {
+      key = key.replace('\\.', '.', key);
       if(/^\d+$/.test(key))
         text = text ? text[parseInt(key)] : values[parseInt(key)]
       else
