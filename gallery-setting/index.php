@@ -16,6 +16,7 @@
         $pictures[$album][] = $file;
     }
   }
+
   if(isset($_GET['action']) && isset($_POST['__token'])){
 
     $token = 'jsksgksksgskjmshdhsjsbnsjsn';
@@ -53,6 +54,8 @@
           http_response_code(403);
         }
         $filename = time() . '.jpg';
+        if(!isset($gallery_db[$_POST['album']]['pictures']))
+          $gallery_db[$_POST['album']]['pictures'] = [];
         $gallery_db[$_POST['album']]['pictures'][$filename] = [
           'title' => [
             'id' => $_POST['title-id'],
@@ -72,6 +75,8 @@
 
       case 'edit-picture':
         $data;
+        if(!isset($gallery_db[$_POST['album']]['pictures']))
+          $gallery_db[$_POST['album']]['pictures'] = [];
         if(isset($gallery_db[$_POST['album']]['pictures'][$_POST['filename']]))
           $data = $gallery_db[$_POST['album']]['pictures'][$_POST['filename']];
         else
@@ -113,7 +118,6 @@
         header('Location: ?');
 
     }
-
     exit;
 
 
