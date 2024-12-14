@@ -99,7 +99,18 @@
         fclose($f);
         unlink($_POST['src']);
         break;
-
+      case  'edit-album':
+        $gallery_db[$_POST['en-us']] = $gallery_db[$_POST['old-en-us']];
+        $gallery_db[$_POST['en-us']]['labels']['en-us'] = $_POST['en-us'];
+        $gallery_db[$_POST['en-us']]['labels']['id'] = $_POST['id'];
+        if($_POST['en-us'] !== $_POST['old-en-us']){
+          unset($gallery_db[$_POST['old-en-us']]);
+          rename($gallery_path . $_POST['old-en-us'], $gallery_path . $_POST['en-us']);
+        }
+        $f = fopen($gallery_db_path, 'w');
+        fwrite($f, json_encode($gallery_db));
+        fclose($f);
+        header('Location: ?');
 
     }
 
@@ -193,7 +204,14 @@
                     <?=$album?>
                   </td>
                   <td>
-                    <i class="bi bi-gear-fill"></i>
+                    <button
+                      class="btn btn-primary"
+                      lang-id="<?=$contents['labels']['id']?>"
+                      lang-en-us="<?=$contents['labels']['en-us']?>"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modal-edit-album">
+                      <i class="bi bi-gear-fill"></i>
+                    </button>
                   </td>
                 </tr>
               </table>
@@ -285,6 +303,48 @@
               </td>
             </tr>
           </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary save">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="modal-edit-album" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title tab-content">
+            Edit Album
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="?action=edit-album">
+            <input name="__token" class="d-none"/>
+            <input name="old-en-us" class="d-none"/>
+            <table border="0" style="width=100%">
+              <tr>
+                <td style="max-width:5em">
+                  <input class="form-control" value="id" disabled=""/>
+                </td>
+                <td>
+                  <input class="form-control" value-of="id" name="id"/>
+                </td>
+              </tr>
+              <tr>
+                <td style="max-width:5em">
+                  <input class="form-control" value="en-us" disabled=""/>
+                </td>
+                <td>
+                  <input class="form-control" value-of="en-us" name="en-us"/>
+                </td>
+              </tr>
+            </table>
+          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -452,6 +512,18 @@
         document.querySelector('#modal-edit-picture .save').onclick = e => {
           document.querySelector('[name="__token"]').value = document.body.getAttribute('__token');
           document.querySelector('#modal-edit-picture form').submit();
+        };
+        let editAlbumBtns = document.querySelectorAll('[data-bs-target="#modal-edit-album"]');
+        for(let button of editAlbumBtns){
+          button.onclick = e => {
+            document.querySelector('#modal-edit-album [name="id"]').value = e.currentTarget.getAttribute('lang-id');
+            document.querySelector('#modal-edit-album [name="en-us"]').value = e.currentTarget.getAttribute('lang-en-us');
+            document.querySelector('#modal-edit-album [name="old-en-us"]').value = e.currentTarget.getAttribute('lang-en-us');
+          };
+        }
+        document.querySelector('#modal-edit-album .save').onclick = e => {
+          document.querySelector('[name="__token"]').value = document.body.getAttribute('__token');
+          document.querySelector('#modal-edit-album form').submit();
         };
       })();
     </script>
