@@ -80,11 +80,13 @@
     $values['gallery_items'] = [];
     foreach($gallery_db as $album => $content){
       $pictures = [];
-      foreach($content['pictures'] as $filename => $picture){
-        $pictures[$filename] = [
-          'title' => $picture['title']['id'],
-          'description' => $picture['description']['id']
-        ];
+      if(isset($content['pictures'])){
+        foreach($content['pictures'] as $filename => $picture){
+          $pictures[$filename] = [
+            'title' => $picture['title']['id'],
+            'description' => $picture['description']['id']
+          ];
+        }
       }
       $values['gallery_items'][$album] = [
         'label' => $content['labels']['id'],
