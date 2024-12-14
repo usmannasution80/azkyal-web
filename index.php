@@ -483,17 +483,29 @@
             <?php
               $gallery_path = 'assets/img/gallery/';
               $gallery = [];
+              $isOther = false;
               foreach(scandir($gallery_path) as $album){
+                if($album === 'others'){
+                  $isOther = true;
+                  continue;
+                }
                 if($album === '.' || $album === '..' || is_file($gallery_path . $album))
                   continue;
                 $gallery [] = $album;
             ?>
             <li data-filter=".filter-<?=$album?>" val="gallery_items.<?=$album?>.label"></li>
+            <?php
+              }
+              if($isOther){
+            ?>
+            <li data-filter=".filter-others" val="gallery_items.others.label"></li>
             <?php } ?>
           </ul>
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200" id="gallery-items-container">
             <?php
+              if($isOther)
+                $gallery[] = 'others';
               foreach($gallery as $album){
                 foreach(scandir($gallery_path . $album) as $picture){
                   if($picture === '.' || $picture === '..')
