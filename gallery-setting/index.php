@@ -21,10 +21,10 @@
 
     $token = 'jsksgksksgskjmshdhsjsbnsjsn';
 
+
     if($_POST['__token'] !== $token)
       exit;
     switch($_GET['action']){
-
 
       case 'add-album':
         $album_name = strtolower(urldecode($_POST['en-us']));
@@ -484,7 +484,7 @@
           .catch(err => console.log(err))
         };
         document.querySelector('#modal-add-picture .save').onclick = e => {
-          document.querySelector('[name="__token"]').value = document.body.getAttribute('__token');
+          document.querySelector('#modal-add-picture [name="__token"]').value = document.body.getAttribute('__token');
           let input = document.querySelector('#modal-add-picture input[type="file"]');
           if(!input.value)
             return alert('You didnt upload file');
@@ -514,7 +514,7 @@
           .catch(err => console.log(r));
         };
         document.querySelector('#modal-edit-picture .save').onclick = e => {
-          document.querySelector('[name="__token"]').value = document.body.getAttribute('__token');
+          document.querySelector('#modal-edit-picture [name="__token"]').value = document.body.getAttribute('__token');
           document.querySelector('#modal-edit-picture form').submit();
         };
         let editAlbumBtns = document.querySelectorAll('[data-bs-target="#modal-edit-album"]');
@@ -526,7 +526,7 @@
           };
         }
         document.querySelector('#modal-edit-album .save').onclick = e => {
-          document.querySelector('[name="__token"]').value = document.body.getAttribute('__token');
+          document.querySelector('#modal-edit-album [name="__token"]').value = document.body.getAttribute('__token');
           document.querySelector('#modal-edit-album form').submit();
         };
       })();
