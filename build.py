@@ -33,7 +33,7 @@ def scan(directory = './'):
         os.system('chmod 755 ' + build_path)
         continue
     if re.search(r'\.(html|php)$', file):
-      os.system(f'html-minifier "{file}" -o "{build_path}" --collapse-whitespace')
+      os.system(f'html-minifier --minify-js true "{file}" -o "{build_path}" --collapse-whitespace')
     elif re.search(r'\.js$', file):
       os.system(f'uglifyjs "{file}" -o "{build_path}" -c -m')
     elif re.search(r'\.css$', file):
