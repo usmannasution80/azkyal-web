@@ -259,19 +259,19 @@
               pack     : 'Bronze',
               rates    : '200.000',
               maxSpeed : '5',
-              devices  : '4'
+              devices  : '2-5'
             },
             {
               pack     : 'Silver',
               rates    : '300.000',
               maxSpeed : '10',
-              devices  : '8'
+              devices  : '4-8'
             },
             {
               pack     : 'Gold',
               rates    : '450.000',
               maxSpeed : '20',
-              devices  : '15'
+              devices  : '8-15'
             }
           ];
           let ratesElement = document.getElementById('rates');
@@ -313,7 +313,7 @@
                     ${(() => {
                       let listBenefit = '';
                       for(let i=1;i<=7;i++){
-                        if(rates.pack === 'Bronze' && i ===7)
+                        if(rates.pack === 'Bronze' && i === 7)
                           continue;
                         listBenefit += `<tr>
                           <td style="vertical-align:top">
