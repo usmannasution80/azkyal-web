@@ -263,7 +263,7 @@
             },
             {
               pack     : 'Silver',
-              rates    : '350.000',
+              rates    : '300.000',
               maxSpeed : '10',
               devices  : '8'
             },
